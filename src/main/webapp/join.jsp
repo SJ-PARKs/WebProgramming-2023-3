@@ -43,22 +43,34 @@
 		String error = request.getParameter("error");
 		if (error != null) {
 			out.println("<div class='alert alert-danger'>");
-			out.println("아이디와 비밀번호를 확인해 주세요");
+			if(error.contentEquals("1")){
+				out.println("비밀번호 확인이 다릅니다.");
+
+			}
+			else if(error.contentEquals("2")){
+				out.println("중복되는 아이디가 존재합니다.");
+			}
+			else{
+				out.println("얘기치 못한 오류가 발생하였습니다.");
+			}
 			out.println("</div>");
 		}
 		%>
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbtron" style="padding-top:20px;">
-				<form method="post" action="loginAction.jsp">
-					<h3 style="text-align: center">로그인 화면</h3>
+				<form method="post" action="joinAction.jsp">
+					<h3 style="text-align: center">회원가입 화면</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+						<input id="id" type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
+						<input id="pw" type="password" class="form-control" placeholder="비밀번호" name="userPassword" maxlength="20">
 					</div>
-					<input type="submit" class="btn btn-primary form-control" value="로그인">
+					<div class="form-group">
+						<input id="pwcheck" type="password" class="form-control" placeholder="비밀번호확인" name="userPasswordCheck" maxlength="20">
+					</div>
+					<input type="submit" class="btn btn-primary form-control" value="회원가입">
 
 					</form>
 			</div>
