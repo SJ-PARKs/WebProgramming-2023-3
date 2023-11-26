@@ -14,10 +14,10 @@
 
 	try {
 		String url = "jdbc:mysql://localhost:3306/webprojectDB";
-		String user = "qwer";
+		String user = "root";
 		String password = "1234";
 
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(url, user, password);
 
 		String sql = "select * from account where id = ?";
