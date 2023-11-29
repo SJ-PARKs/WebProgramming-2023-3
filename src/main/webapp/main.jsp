@@ -81,7 +81,7 @@
 			<div class="container">
 				<h1>프로젝트 모집 사이트</h1>
 				<p>프로젝트 모집을 위한 웹 사이트 제작</p>
-				<p><a class="btn btn-primary btn-pull" href="DetailPage.jsp" role="button">자세히 알아보기</a></p>
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
 			</div>
 		</div>
 	</div>
