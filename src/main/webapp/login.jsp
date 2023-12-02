@@ -38,8 +38,15 @@
 			</ul>
 		</div>
 	</nav>
-	
 	<div class="container">
+		<%
+		String error = request.getParameter("error");
+		if (error != null) {
+			out.println("<div class='alert alert-danger'>");
+			out.println("아이디와 비밀번호를 확인해 주세요");
+			out.println("</div>");
+		}
+		%>
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbtron" style="padding-top:20px;">
@@ -58,8 +65,7 @@
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
-	
-	
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 	</script>
 	<script src="js/bootstrap.js"></script>

@@ -8,58 +8,63 @@
 	String id = request.getParameter("userID");
 	String pw = request.getParameter("userPassword");
 	String pwcheck = request.getParameter("userPasswordCheck");
-	
+	String email = request.getParameter("userEmail");
+	String nick = request.getParameter("userNickName");
+	String age = request.getParameter("userAge");
+
+
 	// 비밀번호 체크
 	if (!pw.contentEquals(pwcheck)) {
 		response.sendRedirect("./join.jsp?error=1");
 		return;
 	}
-	
-	
+
 	Connection conn = null;
 	PreparedStatement pstmt1, pstmt2 = null;
 	ResultSet rs= null;
 
 	try {
-		String url = "jdbc:mysql://localhost:3306/project";
-		String user = "project";
-		String password = "password";
+		String url = "jdbc:mysql://localhost:3306/webprojectDB";
+		String user = "root";
+		String password = "1234";
 
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(url, user, password);
-		
-		
+
+
 		String sql1 = "SELECT id FROM account WHERE id = ?";
 		pstmt1 = conn.prepareStatement(sql1);
 		pstmt1.setString(1, id);
 		rs = pstmt1.executeQuery();
-		
+
 		//아이디 중복의 경우
 		if(rs.next()){
 			response.sendRedirect("./join.jsp?error=2");
 			return;
 		}
-		
 
-		String sql2 = "insert into account values(?,?)";
+
+		String sql2 = "insert into account values(?,?,?,?,?)";
 		pstmt2 = conn.prepareStatement(sql2);
 		pstmt2.setString(1, id);
 		pstmt2.setString(2, pw);
-	
+		pstmt2.setString(3, email);
+		pstmt2.setString(4, nick);
+		pstmt2.setString(5, age);
+
+
 		pstmt2.executeUpdate();
-		
+
 		response.sendRedirect("./login.jsp");
 
 	} catch (SQLException ex) {
 		out.println("account 테이블에 삽입이 실패되었습니다.<br>");
 		out.println("SQLException: " + ex.getMessage());
-		response.sendRedirect("./join.jsp?error=3");
+		//response.sendRedirect("./join.jsp?error=3");
 	} finally {
 		if (pstmt2 != null)
 			pstmt2.close();
 		if (conn != null)
 			conn.close();
 	}
-
-	
 %>
