@@ -135,10 +135,12 @@ tr, td {
 		</table>
 		<br>
 		<br>
-		<br> <input class="btn btn-default" type="button" id="listBtn" onclick="document.location.href = 'detailPage.jsp'" value="목록"> 
-		<input class="btn btn-default" type="reset" id="listBtn" value="취소"> 
-		<input class="btn btn-default" type="reset" id="listBtn" onclick="javascript:alert('확인')" value="등록"> <input type="hidden" name="ref" value="<%=request.getParameter("ref")%>">
+		<br> <input class="btn btn-default" type="button" id="listBtn" onclick="document.location.href = 'detailPage.jsp'" value="목록">  
+		<input class="btn btn-default" type="submit" id="listBtn" onclick="javascript:alert('등록하시겠습니까?')" value="가입"> <input type="hidden" name="ref" value="<%=request.getParameter("ref")%>">
 	</div>
+	삭제/수정 테스트
+	<a href = "deleteAction.jsp?ref=<%=ref%>">삭제하기</a><br>
+	<a href = "modifyPage.jsp?ref=<%=ref %>">수정하기</a>
 	<%
 	stmt.close();
 	conn.close();
