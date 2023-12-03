@@ -5,6 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- <script>
+function moveToProjectPage(message, url){
+	  alert(message);
+	  location.href = url;
+}
+</script> -->
 </head>
 <body>
 <%
@@ -113,6 +119,6 @@ catch(Exception e){
 
 %>
 <a href = "detailPage.jsp">수정해야함</a>
-<input type = "hidden" type="submit" id = "listBtn" onclick="document.location.href = 'detailPage.jsp'" value="등록" >
+<input type = "hidden" type="submit" id = "listBtn" onclick="goToDetailPage('등록 완료', 'detailPage.jsp')" value="등록" >
 </body>
 </html>
