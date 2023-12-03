@@ -20,7 +20,7 @@ request.setCharacterEncoding("utf-8");
 	justify-content: center;
 	display: grid;
 	grid-template-columns: repeat(3, 210px);
-	grid-template-rows: repeat(4, 120px);
+	/* grid-template-rows: repeat(4, 120px); */
 }
 
 .viewpro {
@@ -29,6 +29,7 @@ request.setCharacterEncoding("utf-8");
 	border: 1px solid black;
 	border-radius: 20px 20px 20px 20px;
 	box-shadow: 1px 1px 1px;
+	margin-bottom: 15px;
 }
 
 .progress {
@@ -95,7 +96,7 @@ request.setCharacterEncoding("utf-8");
 	Statement stmt = null;
 	String sql = null;
 	ResultSet rs = null;
-	String content = null, endDate = null;
+	String name = null, endDate = null;
 	int ref = 0;
 
 	try {
@@ -113,7 +114,7 @@ request.setCharacterEncoding("utf-8");
 	rs.beforeFirst();
 	while (rs.next()) {
 		ref = rs.getInt("ref");
-		content = rs.getString("outline");
+		name = rs.getString("projectName");
 		endDate = rs.getString("endDate");
 		java.util.Date endDateAsDate = formatter.parse(endDate);
 		
@@ -121,13 +122,13 @@ request.setCharacterEncoding("utf-8");
 			%>
 		<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
 			<div class="progress">진행중</div>
-			<div class="content"><%=content %></div>
+			<div class="content"><%=name %></div>
 		</div>
 	<%
 		} else{ %>
 				<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
 			<div class="end">마감</div>
-			<div class="content"><%=content %></div>
+			<div class="content"><%=name %></div>
 		</div>
 		<% }
 	}
@@ -138,10 +139,13 @@ request.setCharacterEncoding("utf-8");
 	%>
 	</div>
 		<nav>
-		<ul class="pager">
+<!-- 		<ul class="pager">
 			<li><a href="#">이전</a></li>
 			<li><a href="#">다음</a></li>
-		</ul>
+		</ul> -->
+	<div style="display: flex; justify-content: center; align-items: center;">
+    	<button type="button" class="btn btn-primary" onclick = "document.location.href = 'register.jsp'">등록하기</button>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 		
