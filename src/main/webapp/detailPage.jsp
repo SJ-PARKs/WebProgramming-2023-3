@@ -67,6 +67,11 @@ request.setCharacterEncoding("utf-8");
 	
 	<jsp:include page="header.jsp"></jsp:include>
 	
+	<% 
+		Integer isAdminAttribute = (Integer) session.getAttribute("isadmin");
+		int isadmin = (isAdminAttribute != null) ? isAdminAttribute : -1;
+	%>
+	
 	<br>
 	<form class="form-inline" style="text-align: center; justify-content: center;" method="post" action="searchPage.jsp" name="search">
 		<div class="form-group">
