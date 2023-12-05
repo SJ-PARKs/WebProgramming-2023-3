@@ -11,11 +11,9 @@
 <title>프로젝트 모집 웹 사이트</title>
 </head>
 <body>
-	<%	
-		String userID = null;
-		if(session.getAttribute("userID") != null){
-			userID = (String) session.getAttribute("userID");
-		}
+	<% 
+		Integer isAdminAttribute = (Integer) session.getAttribute("isadmin");
+		int isadmin = (isAdminAttribute != null) ? isAdminAttribute : -1;
 	%>
 	
 	<nav class="navbar navbar-default">
@@ -31,13 +29,13 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">프로젝트</a></li>
-				<li><a href="bbs.jsp">Q&A</a></li>
+				<li><a href="detailPage.jsp">프로젝트</a></li>
+				<li><a href="detailPage.jsp">Q&A</a></li>
 			</ul>
 			
 			<%
-				if(userID == null){
-
+				if (isadmin == -1)
+				{
 			%>
 			
 			<ul class="nav navbar-nav navbar-right">
@@ -54,7 +52,7 @@
 			
 			<%
 			}
-			else
+			if (isadmin != -1)
 			{
 				
 			%>
@@ -81,7 +79,7 @@
 			<div class="container">
 				<h1>프로젝트 모집 사이트</h1>
 				<p>프로젝트 모집을 위한 웹 사이트 제작</p>
-				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+				<p><a class="btn btn-primary btn-pull" href="detailPage.jsp" role="button">자세히 알아보기</a></p>
 			</div>
 		</div>
 	</div>

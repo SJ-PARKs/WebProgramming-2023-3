@@ -68,22 +68,22 @@ function moveToProjectPage(message, url){
         주제영역
         <label><input type="checkbox" name="subject" value="생활" style="margin-left: 54px;">생활&nbsp;</label>
         <label><input type="checkbox" name="subject" value="업무">업무&nbsp;</label>
-        <label><input type="checkbox" name="subject" value="공공">공공/교통&nbsp;</label>
-        <label><input type="checkbox" name="subject" value="금용">금융/핀테크&nbsp;</label>
+        <label><input type="checkbox" name="subject" value="공공, 교통">공공/교통&nbsp;</label>
+        <label><input type="checkbox" name="subject" value="금용, 핀테크">금융/핀테크&nbsp;</label>
         <label><input type="checkbox" name="subject" value="의료">의료&nbsp;</label>
         <label><input type="checkbox" name="subject" value="교육">교육&nbsp;</label>
-        <label><input type="checkbox" name="subject" value="유통">유통/쇼핑&nbsp;</label>
+        <label><input type="checkbox" name="subject" value="유통, 쇼핑">유통/쇼핑&nbsp;</label>
         <label><input type="checkbox" name="subject" value="엔터테이먼트">엔터테이먼트&nbsp;</label>
 
         <hr>
         기술분야
-        <label><input type="checkbox" name="technique" value="SW" style="margin-left: 54px;">SW, AI&nbsp;</label>
-        <label><input type="checkbox" name="technique" value="방송">방송/콘텐츠&nbsp;</label>
-        <label><input type="checkbox" name="technique" value="블록체인">블록체인/융합&nbsp;</label>
+        <label><input type="checkbox" name="technique" value="SW, AI" style="margin-left: 54px;">SW, AI&nbsp;</label>
+        <label><input type="checkbox" name="technique" value="방송, 콘텐츠">방송/콘텐츠&nbsp;</label>
+        <label><input type="checkbox" name="technique" value="블록체인, 융합">블록체인/융합&nbsp;</label>
         <label><input type="checkbox" name="technique" value="AI">AI&nbsp;</label>
         <label><input type="checkbox" name="technique" value="디바이스">디바이스&nbsp;</label>
         <label><input type="checkbox" name="technique" value="차세대보안">차세대보안&nbsp;</label>
-        <label><input type="checkbox" name="technique" value="네트워크">네트워크/통신&nbsp;</label>
+        <label><input type="checkbox" name="technique" value="네트워크, 통신">네트워크/통신&nbsp;</label>
         <hr>
         프로젝트 개요
         <div style="font-size: 10px; width: 120px;">(제안배경 및 주요내용)</div>

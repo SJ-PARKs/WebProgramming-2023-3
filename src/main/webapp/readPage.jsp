@@ -32,6 +32,19 @@ tr, td {
 	padding: 10px;
 }
 </style>
+
+<script type="text/javascript">
+	function addProject() {
+
+		if (confirm("프로젝트에 참가하겠습니까?")) {
+			document.addForm.submit();
+		} else {
+
+			document.addForm.reset();
+		}
+	}
+</script>
+
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -135,10 +148,20 @@ tr, td {
 		</table>
 		<br>
 		<br>
-		<br> <input class="btn btn-default" type="button" id="listBtn" onclick="document.location.href = 'detailPage.jsp'" value="목록"> 
-		<input class="btn btn-default" type="reset" id="listBtn" value="취소"> 
-		<input class="btn btn-default" type="reset" id="listBtn" onclick="javascript:alert('확인')" value="등록"> <input type="hidden" name="ref" value="<%=request.getParameter("ref")%>">
+		<br> 
+		
+		<form name="addForm" 
+					action="./addProject.jsp?projectName=<%=projectName%>"
+					method="post">
+					<a href="#" class="btn btn-info" onclick="addProject()"> 가입
+						&raquo;</a> <a href="detailPage.jsp" class="btn btn-secondary">
+						목록 &raquo;</a>
+		</form>
+		
 	</div>
+	삭제/수정 테스트
+	<a href = "deleteAction.jsp?ref=<%=ref%>">삭제하기</a><br>
+	<a href = "modifyPage.jsp?ref=<%=ref %>">수정하기</a>
 	<%
 	stmt.close();
 	conn.close();

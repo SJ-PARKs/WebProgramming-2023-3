@@ -24,7 +24,7 @@
 	ResultSet rs= null;
 
 	try {
-		String url = "jdbc:mysql://localhost:3306/webprojectDB";
+		String url = "jdbc:mysql://localhost:3306/webproject";
 		String user = "root";
 		String password = "1234";
 
