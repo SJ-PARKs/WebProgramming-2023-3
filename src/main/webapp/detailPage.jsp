@@ -74,12 +74,12 @@ request.setCharacterEncoding("utf-8");
 	%>
 	
 	<br>
-	<form class="form-inline" style="text-align: center; justify-content: center;" method="post" action="searchPage.jsp" name="search">
+	<form class="form-inline" style="text-align: center; justify-content: center;" method="post" action="searchPage.jsp" name="searchKey">
 		<div class="form-group">
 			<!-- 아이콘 추가 -->
 			<label class="sr-only" for="searchKey">Search Key</label>
 			<div class="input-group">
-				<input type="text" class="form-control" id="searchKey" placeholder="검색어를 입력하세요!" style="width: 500px;">
+				<input type="text" class="form-control" id="searchKey" name = "searchKey" placeholder="검색어를 입력하세요!" style="width: 500px;">
 			</div>
 		</div>
 		<button type="submit" class="btn btn-primary">Search</button>
