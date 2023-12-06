@@ -13,55 +13,8 @@
 <meta name="viewport" content="width=device-width initial-scale=1">
 <link rel="stylesheet" href="css/features.css">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel = "stylesheet" href = "css/grid.css">
 <title>검색 결과</title>
-<style>
-.viewProject {
-	justify-content: center;
-	display: grid;
-	grid-template-columns: repeat(3, 210px);
-	/* grid-template-rows: repeat(4, 120px); */
-}
-
-.viewpro {
-	width: 200px;
-	height: 100px;
-	border: 1px solid black;
-	border-radius: 20px 20px 20px 20px;
-	box-shadow: 1px 1px 1px;
-	margin-bottom: 15px;
-}
-
-.progress {
-	margin-left: 10px;
-	margin-top: 5px;
-	width: 40px;
-	height: 15px;
-	border: 1px solid yellowgreen;
-	background-color: yellowgreen;
-	border-radius: 40px 40px 40px 40px;
-	font-size: 10px;
-	font-weight: bold;
-	text-align: center;
-}
-
-.end {
-	margin-left: 10px;
-	margin-top: 5px;
-	width: 40px;
-	height: 15px;
-	border: 1px solid red;
-	background-color: red;
-	border-radius: 40px 40px 40px 40px;
-	font-size: 10px;
-	font-weight: bold;
-	text-align: center;
-}
-
-.content {
-	margin-left: 10px;
-	margin-top: 5px;
-}
-</style>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
