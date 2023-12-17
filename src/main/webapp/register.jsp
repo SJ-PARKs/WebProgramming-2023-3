@@ -16,50 +16,9 @@ function moveToProjectPage(message, url){
 </script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-			aria-expanded="false">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="main.jsp">Project Mate</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">프로젝트</a></li>
-				<li><a href="bbs.jsp">Q&A</a></li>
-			</ul>
-			
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul>	
-				</li>
-			</ul>
-			
-			
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul>	
-				</li>
-			</ul>
-		</div>
-	</nav>
+<jsp:include page="header.jsp"></jsp:include>
 	<br>
-    <div class="projectRegist" style = "width: 1000px; margin: auto;">
+    <div class="projectRegist" style = "width: 1000px; margin: auto; margin-left: 400px;">
               <h3><b>프로젝트 등록</b></h3>
     <hr>
     <form action = "registerAction.jsp" method = "post">
@@ -87,16 +46,16 @@ function moveToProjectPage(message, url){
         <hr>
         프로젝트 개요
         <div style="font-size: 10px; width: 120px;">(제안배경 및 주요내용)</div>
-        <input type="text" name = "outline" style="margin-left: 125px; margin-top: -35px; height: 80px; width: 300px;">
+        <input type="text" name = "outline" style="margin-left: 115px; margin-top: -35px; height: 80px; width: 300px;">
         <hr>
-        수행 예상 기간 <input type="date" id="date" name="startDate" value="2023-11-15" min="2019-01-01" max="2023-12-31"
-            style="margin-left: 10px;" />
+        수행 예상 기간 <input type="date" id="date" name="startDate" value="2023-11-15" min="2019-01-01" max="2024-12-31"
+            style="margin-left: 17px;" />
         ~
-        <input type="date" id="date" name="endDate" value="2023-11-15" min="2019-01-01" max="2023-12-31" />
+        <input type="date" id="date" name="endDate" value="2023-11-15" min="2019-01-01" max="2024-12-31" />
         <hr>
-        수행 예상 팀원 <input type="text" name="teamMate" style="margin-left: 11px; width: 40px">
+        수행 예상 팀원 <input type="text" name="teamMate" style="margin-left: 17px; width: 40px">
         <hr>
-        수행 난이도 <label style="margin-left: 28px;"><input type="radio" name="level" value = "상">상</label>
+        수행 난이도 <label style="margin-left: 31px;"><input type="radio" name="level" value = "상">상</label>
         <label><input type="radio" name="level" value = "상">중</label>
         <label><input type="radio" name="level" value = "상">하</label>
         <hr>

@@ -17,8 +17,7 @@ request.setCharacterEncoding("utf-8");
 	justify-content: center;
 	margin: auto;
 }
-
-table {
+/* table {
 	border: 1px solid;
 	text-align: center;
 	justify-content: center;
@@ -30,7 +29,38 @@ tr, td {
 	box-shadow: 1px 1px 1px;
 	border: 1px solid;
 	padding: 10px;
-}
+} */
+
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 450px;
+    padding-up: 15px;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .box {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 1px 1px;
+    margin-bottom: 35px;
+    margin-left: 10px;	
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+  
+   .text {
+    vertical-align: middle;  /* 수직 정렬 조절 */
+    flex: 0.12;
+  }
+
 </style>
 
 <script type="text/javascript">
@@ -47,43 +77,14 @@ tr, td {
 
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="main.jsp">Project Mate</a>
-		</div>
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="main.jsp">프로젝트</a></li>
-				<li><a href="bbs.jsp">Q&A</a></li>
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul></li>
-			</ul>
-
-
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul></li>
-			</ul>
-		</div>
-	</nav>
+<jsp:include page="header.jsp"></jsp:include>
 	<br>
 	<br>
 	<br>
 
 	<%
 	int ref = 0;
-	String subject = "", technique = "", outline = "", teamMate = "", level = "";
+	String subject = "", technique = "", outline = "", teamMate = "", quantity = "", level = "";
 	String projectName = "", startDate = "", endDate = "";
 	Connection conn = null;
 	Statement stmt = null;
@@ -108,48 +109,46 @@ tr, td {
 		startDate = rs.getString("startDate");
 		endDate = rs.getString("endDate");
 		teamMate = rs.getString("teamMate");
+		quantity = rs.getString("quantity");
 		level = rs.getString("level");
 	}
 	%>
-	<div class="showProject" style="text-align: center; justify-content: center;">
-		<table>
-			<tr>
-				<td width="150">프로젝트명</td>
-				<td width="400"><%=projectName%></td>
-			</tr>
-			<tr>
-				<td width="150">주제영역</td>
-				<td width="400"><%=subject%></td>
-			</tr>
-			<tr>
-				<td width="150">기술분야</td>
-				<td width="400"><%=technique%></td>
-			</tr>
-			<tr>
-				<td width="150">프로젝트 개요</td>
-				<td width="400"><%=outline%></td>
-			</tr>
-			<tr>
-				<td width="150">개시일</td>
-				<td width="400"><%=startDate%></td>
-			</tr>
-			<tr>
-				<td width="150">마감일</td>
-				<td width="400"><%=endDate%></td>
-			</tr>
-			<tr>
-				<td width="150">수행 예상 팀원</td>
-				<td width="400"><%=teamMate%></td>
-			</tr>
-			<tr>
-				<td width="150">수행 난이도</td>
-				<td width="400"><%=level%></td>
-			</tr>
-		</table>
+		 <div class = "container">
+		 <span class = "text">프로젝트 이름:</span>
+		<div class = "box"> <%=projectName%></div>
+		<br>
+		</div>
+		<div class = "container">
+		 <span class = "text">프로젝트 주제:</span>
+		<div class = "box"> <%=subject%></div>
+		<br>
+		</div>
+				 <div class = "container">
+		 <span class = "text">프로젝트 개요:</span>
+		<div class = "box"> <%=outline%></div>
+		<br>
+		</div>
+				 <div class = "container">
+		 <span class = "text">프로젝트 난이도:</span>
+		<div class = "box"> <%=level%></div>
+		<br>
+		</div>
+				 <div class = "container">
+		 <span class = "text">예상 수행 인원:</span>
+		<div class = "box"> <%=quantity%> / <%=teamMate %></div>
+		<br>
+		</div>
+				 <div class = "container">
+		 <span class = "text">예상 수행 기간:</span>
+		<div class = "box"> <%=startDate%> ~ <%=endDate %></div>
+		<br>
+		</div>
+		
+
 		<br>
 		<br>
 		<br> 
-		
+<div class="showProject" style="text-align: center; justify-content: center;">		
 		<form name="addForm" 
 					action="./addProject.jsp?projectName=<%=projectName%>"
 					method="post">

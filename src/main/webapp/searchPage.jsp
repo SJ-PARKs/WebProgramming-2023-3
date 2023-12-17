@@ -31,12 +31,12 @@ int ref = 0;
 
 if(request.getParameter("searchKey")!=null){
 	searchKey = (String) request.getParameter("searchKey");
-	System.out.println("searchword from parameter is :" + searchKey);
+/* 	System.out.println("searchword from parameter is :" + searchKey); */
 	session.setAttribute("searchKey", searchKey);  // 세션에 searchKey 저장
 }
 if(session.getAttribute("searchKey")!=null){
 	searchKey = (String) session.getAttribute("searchKey");
-	System.out.println("searchword from session is :" + searchKey);
+/* 	System.out.println("searchword from session is :" + searchKey); */
 }
 
 try{
@@ -81,7 +81,7 @@ try{
 		<%
 			} else{ %>
 					<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
-				<div class="end">마감</div>
+				<div class="end">마 감</div>
 				<div class="content"><%=projectName %></div>
 			</div>
 			<% }
