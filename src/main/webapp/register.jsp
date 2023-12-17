@@ -62,7 +62,7 @@ function moveToProjectPage(message, url){
 
             <input class="btn btn-default" type="button" id = "listBtn" onclick="document.location.href = 'detailPage.jsp'" value="목록" >
             <input class="btn btn-default" type="reset" id = "listBtn" value="취소" >
-            <input class="btn btn-default" type="submit" id = "listBtn" onclick="moveToProjectPage('등록 완료', 'detailPage.jsp')" value="등록" >
+            <input class="btn btn-default" type="submit" id = "listBtn" onclick="moveToProjectPage('등록하시겠습니까?', 'detailPage.jsp')" value="등록" >
             <!-- <input class="btn btn-default" type="submit" id = "listBtn" onclick="document.location.href = 'detailPage.jsp'" value="등록" > -->
             <input type="hidden" name="ref" value="<%= request.getParameter("ref") %>">
         </form>

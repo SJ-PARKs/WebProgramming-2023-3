@@ -5,14 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <script>
-function moveToProjectPage(message, url){
+<script>
+function goToProjectPage(message, url){
 	  alert(message);
 	  location.href = url;
 }
-</script> -->
+function pageLoadAction() {
+    alert('등록 완료');
+    location.href = 'detailPage.jsp';
+}
+</script>
 </head>
-<body>
+<body onload="pageLoadAction()">
 <%
 request.setCharacterEncoding("utf-8"); // 한글 처리
 
@@ -63,29 +67,15 @@ try{
 	   }
    }
 
-   // xout.println("saveTechnique: " + saveTechnique);  // saveTechnique 값 출력
    outline = request.getParameter("outline");
    startDate = (String)request.getParameter("startDate");
    endDate = (String)request.getParameter("endDate");
    teamMate = request.getParameter("teamMate");
    level = request.getParameter("level");
-   // out.println("level: " + level);  // level 값 출력
-
-   // PreparedStatement를 사용하여 SQL 쿼리를 실행합니다.
-   // String sqlUpdate = "insert into project_tbl (subject, technique, outline, teamMate, level, ref) values (?, ?, ?, ?, ?, ?)";
-/*    String sqlUpdate = "insert into project_tbl (subject, technique, outline, teamMate, level, ref) values (" + saveSubject + ",'" 
-		   + saveTechnique + "','" + outline + "','" + teamMate + "','" + level + "','" + ref + ")"; */
 
    String sqlUpdate = "INSERT INTO project_tbl (projectName, subject, technique, outline, startDate, endDate, teamMate, level, ref) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
    PreparedStatement pstmt = conn.prepareStatement(sqlUpdate); 
-/*    System.out.println("PreparedStatement 생성 완료");
-   
-   System.out.println("saveSubject: " + saveSubject);
-   System.out.println("saveTechnique: " + saveTechnique);
-   System.out.println("outline: " + outline);
-   System.out.println("teamMate: " + teamMate);
-   System.out.println("level: " + level);
-   System.out.println("ref: " + ref); */
+
    
    pstmt.setString(1, projectName);
    pstmt.setString(2, saveSubject); 
@@ -96,9 +86,7 @@ try{
    pstmt.setString(7, teamMate);    
    pstmt.setString(8, level); 
    pstmt.setInt(9, ref); 
-  // System.out.println("파라미터 설정 완료");
    int result = pstmt.executeUpdate();
-   // System.out.println("쿼리 실행 결과: " + result);
 
    if(pstmt!=null) pstmt.close();
    if(conn!=null) conn.close(); 
@@ -106,19 +94,10 @@ try{
 catch(Exception e){
 	   e.printStackTrace();
 	}
-/* catch(Exception e){
-   out.println("에러 발생: " + e.getMessage());
-} finally {
-    try {
-        if(stmt != null) stmt.close();
-        if(rs != null) rs.close();
-    } catch(Exception e) {
-        e.printStackTrace();
-    }
-} */
+
 
 %>
-<a href = "detailPage.jsp">수정해야함</a>
+<!-- <a href = "detailPage.jsp">수정해야함</a> -->
 <input type = "hidden" type="submit" id = "listBtn" onclick="goToDetailPage('등록 완료', 'detailPage.jsp')" value="등록" >
 </body>
 </html>
