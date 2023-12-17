@@ -11,7 +11,7 @@
 <title>프로젝트 모집 웹 사이트</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">

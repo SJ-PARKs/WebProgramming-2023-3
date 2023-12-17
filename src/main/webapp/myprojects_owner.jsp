@@ -13,14 +13,20 @@
   <title>마이페이지</title>
 </head>
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
+
+
+<div class="container">
+  <div class="container mt-5">
+    <h1>User Profile</h1>
 <%
   String userID = (String) session.getAttribute("id");
   if(userID == null){
     response.sendRedirect("./login.jsp");
   }
 
-  String email = "", nick="";
-  int age=0;
+  String project = "";
 
   Connection conn = null;
   PreparedStatement pstmt1, pstmt2 = null;
@@ -39,7 +45,7 @@
     //DB연결
 
     //SQL문 삽입
-    String sql1 = "SELECT email, nick, age FROM account WHERE id = ?";
+    String sql1 = "SELECT project_id FROM admin_account WHERE admin_id = ?";
 
     //SQL문 실행
     pstmt1 = conn.prepareStatement(sql1);
@@ -49,18 +55,21 @@
     rs = pstmt1.executeQuery();
 
     //저장된 튜플 탐색
-    if(rs.next()){
-      email = rs.getString("email");
-      nick = rs.getString("nick");
-      age =  Integer.parseInt(rs.getString("age"));
+    while(rs.next()){
+      project = rs.getString("project_id");
+%>
+    <dl class="row">
+      <dt class="col-sm-3">project:</dt>
+      <dd class="col-sm-9"><%= project %></dd>
+    </dl>
+
+<%
     }
 
     //#사용자가 작성한 글 가져오기
 
   } catch (SQLException ex) {
-    out.println("account 테이블에 삽입이 실패되었습니다.<br>");
     out.println("SQLException: " + ex.getMessage());
-    response.sendRedirect("./join.jsp?error=3");
   } finally {
     if (pstmt2 != null)
       pstmt2.close();
@@ -70,32 +79,7 @@
 
 %>
 
-<jsp:include page="header.jsp"></jsp:include>
-
-<div class="container">
-  <div class="container mt-5">
-    <h1>User Profile</h1>
-    <dl class="row">
-      <dt class="col-sm-3">User ID:</dt>
-      <dd class="col-sm-9"><%= userID %></dd>
-
-      <dt class="col-sm-3">Email:</dt>
-      <dd class="col-sm-9"><%= email %></dd>
-
-      <dt class="col-sm-3">Nickname:</dt>
-      <dd class="col-sm-9"><%= nick %></dd>
-
-      <dt class="col-sm-3">Age:</dt>
-      <dd class="col-sm-9"><%= age %></dd>
-    </dl>
   </div>
-  <button type="button"><a href="myprojects_owner.jsp">내가 작성한 게시글 목록</a></button>
-  <button type="button"><a href="myprojects_joined.jsp">신청 목록</a></button>
-
-</div>
-
-<div class="container">
-
 </div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 </script>
