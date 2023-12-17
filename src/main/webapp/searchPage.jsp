@@ -23,20 +23,22 @@ String searchKey = null;
 Connection conn = null;
 Statement stmt = null;
 ResultSet rs = null;
+
 java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 java.util.Date today = new java.util.Date();
 String dateString = formatter.format(today);
 String outline, teamMate, level, startDate, endDate, projectName;
+int quantity;
 int ref = 0;
 
 if(request.getParameter("searchKey")!=null){
 	searchKey = (String) request.getParameter("searchKey");
-	System.out.println("searchword from parameter is :" + searchKey);
+/* 	System.out.println("searchword from parameter is :" + searchKey); */
 	session.setAttribute("searchKey", searchKey);  // 세션에 searchKey 저장
 }
 if(session.getAttribute("searchKey")!=null){
 	searchKey = (String) session.getAttribute("searchKey");
-	System.out.println("searchword from session is :" + searchKey);
+/* 	System.out.println("searchword from session is :" + searchKey); */
 }
 
 try{
@@ -69,20 +71,41 @@ try{
 	   while(rs.next()){
 			ref = rs.getInt("ref");
 			projectName = rs.getString("projectName");
+			startDate = rs.getString("startDate");
 			endDate = rs.getString("endDate");
+			quantity = rs.getInt("quantity");
 			java.util.Date endDateAsDate = formatter.parse(endDate);
+			int team = Integer.parseInt("teamMate");
+			int progressValue = quantity/team;
 			
-			if(endDateAsDate.after(today)){
+			if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
+				if (team != quantity){
+					
 				%>
 			<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
 				<div class="progress">진행중</div>
-				<div class="content"><%=projectName %></div>
+				<div class="content"><%=projectName %><br>
+				<div class = "graph">
+				<progress value = "<%=progressValue%>" max = "100" style = "margin: auto;"></progress>
+				</div>
+				<div class = "printDate">
+				<%=startDate %> ~ <%=endDate %>
+				</div>
+				</div>
 			</div>
 		<%
+				}
 			} else{ %>
-					<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
-				<div class="end">마감</div>
-				<div class="content"><%=projectName %></div>
+			<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
+				<div class="end">마 감</div>
+				<div class="content"><%=projectName %><br>
+				<div class = "graph">
+				<progress value = "<%=progressValue%>" max = "100"></progress>
+				</div>
+				<div class = "printDate">
+				<%=startDate %> ~ <%=endDate %>
+				</div>
+				</div>
 			</div>
 			<% }
 		}

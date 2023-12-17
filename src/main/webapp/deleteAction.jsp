@@ -6,8 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>프로젝트 삭제</title>
+<script>
+function pageLoadAction() {
+    alert('삭제 완료');
+    location.href = 'detailPage.jsp';
+}
+</script>
 </head>
-<body>
+<body onload="pageLoadAction()">
 <%
 request.setCharacterEncoding("utf-8"); // 한글 처리
 int ref = 0;
@@ -36,7 +42,5 @@ try{
 }
 
 %>
-삭제 완료
-<a href = "detailPage.jsp">목록으로 돌아가기</a>
 </body>
 </html>

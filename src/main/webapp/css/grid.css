@@ -1,47 +1,67 @@
 @charset "EUC-KR";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500&display=swap");
+
 .viewProject {
 	justify-content: center;
 	display: grid;
-	grid-template-columns: repeat(3, 210px);
+	grid-template-columns: repeat(3, 300px);
+	margin-bottom: 20px;
 	/* grid-template-rows: repeat(4, 120px); */
 }
 
 .viewpro {
-	width: 200px;
-	height: 100px;
+	width: 250px;
+	height: 150px;
 	border: 1px solid black;
 	border-radius: 20px 20px 20px 20px;
 	box-shadow: 1px 1px 1px;
-	margin-bottom: 15px;
+	margin-bottom: 35px;
 }
 
 .progress {
 	margin-left: 10px;
-	margin-top: 5px;
-	width: 40px;
-	height: 15px;
+	margin-top: 10px;
+	width: 60px;
+	height: 25px;
 	border: 1px solid yellowgreen;
 	background-color: yellowgreen;
 	border-radius: 40px 40px 40px 40px;
-	font-size: 10px;
+	font-size: 14px;
 	font-weight: bold;
 	text-align: center;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .end {
 	margin-left: 10px;
-	margin-top: 5px;
-	width: 40px;
-	height: 15px;
+	margin-top: 10px;
+	width: 60px;	
+	height: 25px;
 	border: 1px solid red;
 	background-color: red;
 	border-radius: 40px 40px 40px 40px;
-	font-size: 10px;
+	font-size: 14px;
 	font-weight: bold;
 	text-align: center;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .content {
 	margin-left: 10px;
 	margin-top: 5px;
+	font-size: 20px;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 100;
+	background-image: url("images/smile.png");
+	background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+}
+
+.graph{
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+.printDate{
+	margin-top: auto;
+	font-size: 10px;
 }
