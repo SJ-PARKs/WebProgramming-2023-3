@@ -76,9 +76,7 @@ request.setCharacterEncoding("utf-8");
 		
 		java.util.Date startDateAsDate = formatter.parse(startDate);
 		java.util.Date endDateAsDate = formatter.parse(endDate);
-		long totalDuration = endDateAsDate.getTime() - startDateAsDate.getTime();
-		long elapsedDuration = today.getTime() - startDateAsDate.getTime();	
-		int progressValue = (int) (elapsedDuration * 100.0 / totalDuration);
+		int progressValue = quantity/teamMate;
 		
 		if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
 			if (teamMate != quantity){
