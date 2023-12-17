@@ -88,6 +88,14 @@
 			<ul class="nav navbar-nav">
 				<li><a href="detailPage.jsp">프로젝트</a></li>
 				<li><a href="detailPage.jsp">Q&A</a></li>
+				<%
+					if (isadmin == 0)
+					{
+				%>
+				<li><a href="mypage.jsp">마이페이지</a></li>
+				<%
+					}
+				%>
 			</ul>
 			
 			<%
@@ -121,7 +129,7 @@
 					aria-expanded="false">회원관리<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul>	
+					</ul>
 				</li>
 			</ul>
 			
