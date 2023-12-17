@@ -17,8 +17,17 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="main.jsp">
       <img src="images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+    </a>
+    <a class="navbar-brand" href="main.jsp">
       ProjectMate
     </a>
+      <a class="navbar-brand" href="register.jsp" style = "font-size: 15px;">
+      프로젝트 등록
+    </a>
+     <a class="navbar-brand" href="addProject.jsp " style = "font-size: 15px;">
+      프로젝트 가입
+    </a>
+    
   </div>
   </div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
