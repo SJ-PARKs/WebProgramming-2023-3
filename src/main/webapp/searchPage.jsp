@@ -62,7 +62,7 @@ try{
 				<input type="text" class="form-control" id="searchKey" name = "searchKey" placeholder="<%=searchKey %>" style="width: 500px;">
 			</div>
 		</div>
-		<button type="submit" class="btn btn-primary" disabled>Search</button>
+		<button type="submit" class="btn btn-primary" >Search</button>
 	</form>
 	<br><br>
 		<div class="viewProject">

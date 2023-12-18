@@ -11,15 +11,44 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/custom.css">
   <title>마이페이지</title>
+  <style>
+     .container2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 430px;
+    padding-up: 15px;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .box {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 35px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px;
+    margin-bottom: 35px;
+    margin-left: 10px;	
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+  
+   .text {
+    vertical-align: middle;  /* 수직 정렬 조절 */
+    flex: 0.1;
+  }
+  </style>
 </head>
 <body>
 
 <jsp:include page="header.jsp"></jsp:include>
 
 
-<div class="container">
-  <div class="container mt-5">
-    <h1>User Profile</h1>
+    <h1 style = "text-align: center;">User Profile</h1>
+    <br><br>
 <%
   String userID = (String) session.getAttribute("id");
   if(userID == null){
@@ -55,15 +84,15 @@
     rs = pstmt1.executeQuery();
 
     //저장된 튜플 탐색
-
-
-while(rs.next()) {
-    project = rs.getString("project_id");
+    while(rs.next()){
+      project = rs.getString("project_id");
 %>
-    <div style="border: 1px solid #ccc; padding: 5px; margin-bottom: 5px;">
-        <h5>Project:</h5>
-        <p><%= project %></p>
-    </div>
+      <div class = "container2">
+		 <span class = "text">project:</span>
+		<div class = "box"> <%=project%></div>
+		<br>
+		</div>
+
 <%
     }
 
@@ -80,11 +109,16 @@ while(rs.next()) {
 
 %>
 
-  </div>
-</div>
+				<br><br><br>
+			<div style="display: flex; justify-content: center; align-items: center;">
+			<button type="button" class="btn btn-primary" onclick = "document.location.href = 'myprojects_joined.jsp'">내가 가입한 프로젝트 확인</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" class="btn btn-primary" onclick = "document.location.href = 'main.jsp'">메인으로</button>
+		</div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 </script>
 <script src="js/bootstrap.js"></script>
+<br><br><br><br>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
