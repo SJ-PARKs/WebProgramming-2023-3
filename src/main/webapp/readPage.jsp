@@ -152,5 +152,6 @@ request.setCharacterEncoding("utf-8");
 	stmt.close();
 	conn.close();
 	%>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

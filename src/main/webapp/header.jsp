@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
 	<% 
 		Integer isAdminAttribute = (Integer) session.getAttribute("isadmin");
 		int isadmin = (isAdminAttribute != null) ? isAdminAttribute : -1;
@@ -19,7 +18,7 @@
       <img src="images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
     </a>
     <a class="navbar-brand" href="main.jsp">
-      ProjectMate
+      Project Mate
     </a>
       <a class="navbar-brand" href="register.jsp" style = "font-size: 15px;">
       프로젝트 등록
@@ -42,6 +41,8 @@
 			%>
 			
 			<ul class="nav navbar-nav navbar-right">
+			     <a class="navbar-brand" href="mypage.jsp " style = "font-size: 15px;">
+			     마이 페이지</a>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"

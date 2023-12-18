@@ -12,20 +12,75 @@
 <link rel = "stylesheet" href = "css/grid.css">
 <!-- <link rel="stylesheet" href="css/custom.css"> -->
 <title>프로젝트 모집 웹 사이트</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            flex: 1;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+    
+            section {
+            max-width: 1136px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+                button {
+             margin-left: 1009px;
+            background-color: black;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+</style>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 
-	<jsp:include page="header.jsp"></jsp:include>
+    <section id="home">
+    <img src="images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top" style = "margin-bottom: auto;">
+        <h2>Welcome to Project Mate!</h2>
+        <p>프로젝트 협업 및 관리를 도와줄 웹 사이트</p>
+        <p>협업을 시작하고 프로젝트를 성공으로 이끄세요!</p>
+    </section>
+    
+    
+    <section id="features">
+    <img src="images/computer.jpg" alt="Logo" width="50" height="50" class="d-inline-block align-text-top" style = "margin-bottom: auto;">
+        <h2>About Project Mate</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>High accessibility</h3>
+                <p>누구나 손쉽게 가입할 수 있습니다.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Team Collaboration</h3>
+                <p>다양한 사람들과 협업할 수 있습니다.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Intuitive Connection</h3>
+                <p>직관적인 UI로 사이트를 쉽게 이용할 수 있습니다.</p>
+            </div>
+        </div>
+        <button type="submit" onclick="document.location.href = 'detailPage.jsp'">둘러보기</button>
+    </section>
 
-	<div class="container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1>프로젝트 모집 사이트</h1>
-				<p>프로젝트 모집을 위한 웹 사이트 제작</p>
-				<p><a class="btn btn-primary btn-pull" href="detailPage.jsp" role="button">자세히 알아보기</a></p>
-			</div>
-		</div>
-	</div>
 	
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -37,13 +92,13 @@
 			
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="images/1.jpg">
+					<img src="images/img1.jpg" style = "width: 20%">
 				</div>
 				<div class="item">
-					<img src="images/2.jpg">
+					<img src="images/img2.jpg" style = "width: 20%">
 				</div>
 				<div class="item">
-					<img src="images/3.jpg">
+					<img src="images/img3.jpg" style = "width: 20%">
 				</div>
 			</div>
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -57,82 +112,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 	</script>
 	<script src="js/bootstrap.js"></script>
-	
-		<div class="viewProject">
-	<%
-    java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
-    java.util.Date today = new java.util.Date();
-    String dateString = formatter.format(today);
-	
-	Connection conn = null;
-	Statement stmt = null;
-	String sql = null;
-	ResultSet rs = null;
-	String name = null, endDate = null, startDate = null;
-	int teamMate, quantity;
-	int ref = 0;
+<jsp:include page="footer.jsp"></jsp:include>
+    </body>
 
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		String url = "jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC";
-		conn = DriverManager.getConnection(url, "root", "1234");
-		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		sql = "select * from project_tbl";
-		rs = stmt.executeQuery(sql);
-/* 	} catch (Exception e) {
-		out.println(e.getMessage());
-	} */
-
-	rs.last();
-	rs.beforeFirst();
-	while (rs.next()) {
-		ref = rs.getInt("ref");
-		name = rs.getString("projectName");
-		startDate = rs.getString("startDate");
-		endDate = rs.getString("endDate");
-		teamMate = Integer.parseInt(rs.getString("teamMate"));
-		quantity = rs.getInt("quantity");
-		
-		java.util.Date startDateAsDate = formatter.parse(startDate);
-		java.util.Date endDateAsDate = formatter.parse(endDate);
-		int progressValue = quantity/teamMate;
-		
-		if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
-			if (teamMate != quantity){
-				
-			%>
-		<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
-			<div class="progress">진행중</div>
-			<div class="content"><%=name %><br>
-			<div class = "graph">
-			<progress value = "<%=progressValue%>" max = "100" style = "margin: auto;"></progress>
-			</div>
-			<div class = "printDate">
-			<%=startDate %> ~ <%=endDate %>
-			</div>
-			</div>
-		</div>
-	<%
-			}
-		} else{ %>
-		<div class="viewpro" onclick="document.location.href = 'readPage.jsp?ref=<%=ref%>'">
-			<div class="end">마 감</div>
-			<div class="content"><%=name %><br>
-			<div class = "graph">
-			<progress value = "<%=progressValue%>" max = "100"></progress>
-			</div>
-			<div class = "printDate">
-			<%=startDate %> ~ <%=endDate %>
-			</div>
-			</div>
-		</div>
-		<% }
-	}
-	conn.close();
-	} catch(Exception e){
-		e.printStackTrace();
-	}
-	%>
-	</div>
 </body>
 </html>
