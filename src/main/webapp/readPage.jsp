@@ -145,9 +145,6 @@ request.setCharacterEncoding("utf-8");
 		</form>
 		
 	</div>
-	삭제/수정 테스트
-	<a href = "deleteAction.jsp?ref=<%=ref%>">삭제하기</a><br>
-	<a href = "modifyPage.jsp?ref=<%=ref %>">수정하기</a>
 	<%
 	stmt.close();
 	conn.close();

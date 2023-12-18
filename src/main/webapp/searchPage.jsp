@@ -27,8 +27,8 @@ ResultSet rs = null;
 java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
 java.util.Date today = new java.util.Date();
 String dateString = formatter.format(today);
-String outline, teamMate, level, startDate, endDate, projectName;
-int quantity;
+String outline, level, startDate, endDate, projectName;
+int quantity, team;
 int ref = 0;
 
 if(request.getParameter("searchKey")!=null){
@@ -74,9 +74,13 @@ try{
 			startDate = rs.getString("startDate");
 			endDate = rs.getString("endDate");
 			quantity = rs.getInt("quantity");
-			java.util.Date endDateAsDate = formatter.parse(endDate);
-			int team = Integer.parseInt("teamMate");
-			int progressValue = quantity/team;
+			team = Integer.parseInt(rs.getString("teamMate"));
+/* 			int progressValue = quantity/team; */
+        java.util.Date startDateAsDate = formatter.parse(startDate);
+		java.util.Date endDateAsDate = formatter.parse(endDate);
+		long totalDuration = endDateAsDate.getTime() - startDateAsDate.getTime();
+		long elapsedDuration = today.getTime() - startDateAsDate.getTime();
+		int progressValue = (int) (elapsedDuration * 100.0 / totalDuration);
 			
 			if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
 				if (team != quantity){
@@ -116,6 +120,9 @@ try{
 		%>
 		</div>
 <br>
+	<div style="display: flex; justify-content: center; align-items: center;">
+    	<button type="button" class="btn btn-primary" onclick = "document.location.href = 'detailPage.jsp'">돌아가기</button>
+	</div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
