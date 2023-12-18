@@ -41,6 +41,8 @@
 			%>
 			
 			<ul class="nav navbar-nav navbar-right">
+			     <a class="navbar-brand" href="mypage.jsp " style = "font-size: 15px;">
+			     마이 페이지</a>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"

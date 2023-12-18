@@ -38,20 +38,6 @@
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-/*         footer {
-            background-color: #fff;
-            color: black;
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            margin-top: 20px;
-        }
-                a {
-            color: black;
-            text-decoration: none;
-        }
                 button {
              margin-left: 1009px;
             background-color: black;
@@ -60,22 +46,12 @@
             border: none;
             border-radius: 3px;
             cursor: pointer;
-        } */
+        }
 
 </style>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<!-- 	<div class="container" style = " background-color: #fff;">
-		<div class="jumbotron">
-			<div class="container">
-        <h2>Welcome to Project Mate</h2>
-        <p>Your go-to platform for project collaboration and management.</p>
-        <p>Start collaborating today and make your projects a success!</p>
-				<p><a class="btn btn-primary btn-pull" href="detailPage.jsp" role="button">자세히 알아보기</a></p>
-			</div>
-		</div>
-	</div> -->
 
     <section id="home">
     <img src="images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top" style = "margin-bottom: auto;">
@@ -90,16 +66,16 @@
         <h2>About Project Mate</h2>
         <div class="features">
             <div class="feature-card">
-                <h3>Task Management</h3>
-                <p>Effortlessly manage tasks and track progress.</p>
+                <h3>High accessibility</h3>
+                <p>누구나 손쉽게 가입할 수 있습니다.</p>
             </div>
             <div class="feature-card">
                 <h3>Team Collaboration</h3>
-                <p>Collaborate seamlessly with your team in real-time.</p>
+                <p>다양한 사람들과 협업할 수 있습니다.</p>
             </div>
             <div class="feature-card">
-                <h3>File Sharing</h3>
-                <p>Share and access project files with ease.</p>
+                <h3>Intuitive Connection</h3>
+                <p>직관적인 UI로 사이트를 쉽게 이용할 수 있습니다.</p>
             </div>
         </div>
         <button type="submit" onclick="document.location.href = 'detailPage.jsp'">둘러보기</button>
@@ -135,10 +111,6 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 	</script>
 	<script src="js/bootstrap.js"></script>
-<!--     <footer>
-    <hr style = "margin-top: 0;">
-        &copy; 2023 Ace Three, 에이쓰리&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://github.com/SJ-PARKs/WebProgramming-2023-3.git">Github</a>
-    </footer> -->
 <jsp:include page="footer.jsp"></jsp:include>
     </body>
 
