@@ -80,6 +80,7 @@
         </div>
         <button type="submit" onclick="document.location.href = 'detailPage.jsp'">둘러보기</button>
     </section>
+
 	
 	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
