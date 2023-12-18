@@ -35,7 +35,6 @@ request.setCharacterEncoding("utf-8");
     width: 500px;
     height: 35px;
     border: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
     box-shadow: 1px 1px 1px;
     margin-bottom: 35px;
     margin-left: 10px;	

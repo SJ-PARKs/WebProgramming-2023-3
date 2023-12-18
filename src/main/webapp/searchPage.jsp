@@ -59,10 +59,10 @@ try{
 			<!-- 아이콘 추가 -->
 			<label class="sr-only" for="searchKey">Search Key</label>
 			<div class="input-group">
-				<input type="text" class="form-control" id="searchKey" name = "searchKey" placeholder="검색 결과" style="width: 500px;">
+				<input type="text" class="form-control" id="searchKey" name = "searchKey" placeholder="<%=searchKey %>" style="width: 500px;">
 			</div>
 		</div>
-		<button type="submit" class="btn btn-primary" disabled>Search</button>
+		<button type="submit" class="btn btn-primary" >Search</button>
 	</form>
 	<br><br>
 		<div class="viewProject">

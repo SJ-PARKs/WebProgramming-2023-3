@@ -11,30 +11,34 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/custom.css">
   <title>마이페이지</title>
-  <style>
-    .container {
+<style>
+  .container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-left: 450px;
+    margin-left: 430px;
     padding-up: 15px;
     align-items: center;
     height: 60px;
   }
   
-    .box {
+  .box {
     display: flex;
     align-items: center;
     width: 500px;
     height: 35px;
     border: 1px solid black;
-    border-radius: 20px 20px 20px 20px;
     box-shadow: 1px 1px 1px;
     margin-bottom: 35px;
     margin-left: 10px;	
     padding-left: 10px;
     margin-top: 30px;
+  }
+  
+   .text {
+    vertical-align: middle;  /* 수직 정렬 조절 */
+    flex: 0.1;
   }
   </style>
 </head>
@@ -98,31 +102,39 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-<div class="container">
-  <div class="container mt-5">
-    <h1>User Profile</h1>
-    <dl class="row">
-      <dt class="col-sm-3">User ID:</dt>
-      <dd class="col-sm-9"><%= userID %></dd>
 
-      <dt class="col-sm-3">Email:</dt>
-      <dd class="col-sm-9"><%= email %></dd>
+    <h1 style = "text-align: center;">User Profile</h1>
+    <br><br>
+  		 <div class = "container">
+		 <span class = "text">User ID:</span>
+		<div class = "box"> <%=userID%></div>
+		<br>
+		</div>
+  		 <div class = "container">
+		 <span class = "text">Email:</span>
+		<div class = "box"> <%=email%></div>
+		<br>
+		</div>
+  		 <div class = "container">
+		 <span class = "text">Nickname:</span>
+		<div class = "box"> <%=nick%></div>
+		<br>
+		</div>
+  		 <div class = "container">
+		 <span class = "text">Age:</span>
+		<div class = "box"> <%=age%></div>
+		<br>
+		</div>
+		<br><br><br>
 
-      <dt class="col-sm-3">Nickname:</dt>
-      <dd class="col-sm-9"><%= nick %></dd>
+	<div style="display: flex; justify-content: center; align-items: center;">
+    	<button type="button" class="btn btn-primary" onclick = "document.location.href = 'myprojects_owner.jsp'">내가 등록한 프로젝트 확인</button>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	<button type="button" class="btn btn-primary" onclick = "document.location.href = 'myprojects_joined.jsp'">내가 가입한 프로젝트 확인</button>
+	</div>
 
-      <dt class="col-sm-3">Age:</dt>
-      <dd class="col-sm-9"><%= age %></dd>
-    </dl>
-  </div>
-  <input type="submit" class="btn btn-primary form-control" value = "작성"><a href="myprojects_owner.jsp">내가 작성한 게시글 목록</a>
-  <input type="submit" class="btn btn-primary form-control" value = "신청"><a href="myprojects_joined.jsp">신청 목록</a>
+<br><br><br><br>
 
-</div>
-
-<div class="container">
-
-</div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js">
 </script>
 <script src="js/bootstrap.js"></script>
