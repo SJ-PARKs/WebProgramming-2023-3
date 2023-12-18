@@ -76,7 +76,7 @@ request.setCharacterEncoding("utf-8");
 		
 		java.util.Date startDateAsDate = formatter.parse(startDate);
 		java.util.Date endDateAsDate = formatter.parse(endDate);
-		int progressValue = quantity/teamMate;
+		int progressValue = quantity - teamMate;
 		
 		if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
 			if (teamMate != quantity){
@@ -128,7 +128,7 @@ request.setCharacterEncoding("utf-8");
 		
 	</script>
 	<script src="js/bootstrap.js"></script>
-
 	</nav>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
