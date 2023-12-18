@@ -103,16 +103,16 @@
     <h1>User Profile</h1>
     <dl class="row">
       <dt class="col-sm-3">User ID:</dt>
-      <dd class="col-sm-9"><div class = "box"><%= userID %></div></dd>
+      <dd class="col-sm-9"><%= userID %></dd>
 
       <dt class="col-sm-3">Email:</dt>
-      <dd class="col-sm-9"><div class = "box"><%= email %></div></dd>
+      <dd class="col-sm-9"><%= email %></dd>
 
       <dt class="col-sm-3">Nickname:</dt>
-      <dd class="col-sm-9"><div class = "box">><%= nick %></div></dd>
+      <dd class="col-sm-9"><%= nick %></dd>
 
       <dt class="col-sm-3">Age:</dt>
-      <dd class="col-sm-9"><div class = "box"><%= age %></div></dd>
+      <dd class="col-sm-9"><%= age %></dd>
     </dl>
   </div>
   <input type="submit" class="btn btn-primary form-control" value = "작성"><a href="myprojects_owner.jsp">내가 작성한 게시글 목록</a>

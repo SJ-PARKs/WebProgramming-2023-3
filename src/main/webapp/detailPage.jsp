@@ -71,12 +71,15 @@ request.setCharacterEncoding("utf-8");
 		name = rs.getString("projectName");
 		startDate = rs.getString("startDate");
 		endDate = rs.getString("endDate");
-		teamMate = Integer.parseInt(rs.getString("teamMate"));
 		quantity = rs.getInt("quantity");
+		teamMate = Integer.parseInt(rs.getString("teamMate"));
 		
 		java.util.Date startDateAsDate = formatter.parse(startDate);
 		java.util.Date endDateAsDate = formatter.parse(endDate);
-		int progressValue = quantity - teamMate;
+		/* int progressValue = quantity - teamMate; */
+		long totalDuration = endDateAsDate.getTime() - startDateAsDate.getTime();
+		long elapsedDuration = today.getTime() - startDateAsDate.getTime();
+		int progressValue = (int) (elapsedDuration * 100.0 / totalDuration);
 		
 		if(endDateAsDate.after(today) || endDateAsDate.equals(today)){
 			if (teamMate != quantity){
@@ -100,7 +103,7 @@ request.setCharacterEncoding("utf-8");
 			<div class="end">마 감</div>
 			<div class="content"><%=name %><br>
 			<div class = "graph">
-			<progress value = "<%=progressValue%>" max = "100"></progress>
+			<progress value = "<%=progressValue%>" max = "100" style = "margin: auto;"></progress>
 			</div>
 			<div class = "printDate">
 			<%=startDate %> ~ <%=endDate %>

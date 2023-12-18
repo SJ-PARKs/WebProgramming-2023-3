@@ -19,7 +19,13 @@
 	margin-bottom: 35px;
 }
 
+/*.progress-container {
+        display: flex;   flexbox 사용 
+        align-items: center;   아이템들을 세로 축 중앙에 배치 
+}*/
+
 .progress {
+	display: inline-block;
 	margin-left: 10px;
 	margin-top: 10px;
 	width: 60px;
@@ -46,6 +52,7 @@
 	text-align: center;
 	font-family: 'Gowun Dodum', sans-serif;
 }
+
 
 .content {
 	margin-left: 10px;
