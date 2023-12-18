@@ -11,6 +11,32 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/custom.css">
   <title>마이페이지</title>
+  <style>
+    .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-left: 450px;
+    padding-up: 15px;
+    align-items: center;
+    height: 60px;
+  }
+  
+    .box {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 1px 1px;
+    margin-bottom: 35px;
+    margin-left: 10px;	
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+  </style>
 </head>
 <body>
 <%
@@ -77,20 +103,20 @@
     <h1>User Profile</h1>
     <dl class="row">
       <dt class="col-sm-3">User ID:</dt>
-      <dd class="col-sm-9"><%= userID %></dd>
+      <dd class="col-sm-9"><div class = "box"><%= userID %></div></dd>
 
       <dt class="col-sm-3">Email:</dt>
-      <dd class="col-sm-9"><%= email %></dd>
+      <dd class="col-sm-9"><div class = "box"><%= email %></div></dd>
 
       <dt class="col-sm-3">Nickname:</dt>
-      <dd class="col-sm-9"><%= nick %></dd>
+      <dd class="col-sm-9"><div class = "box">><%= nick %></div></dd>
 
       <dt class="col-sm-3">Age:</dt>
-      <dd class="col-sm-9"><%= age %></dd>
+      <dd class="col-sm-9"><div class = "box"><%= age %></div></dd>
     </dl>
   </div>
-  <button type="button"><a href="myprojects_owner.jsp">내가 작성한 게시글 목록</a></button>
-  <button type="button"><a href="myprojects_joined.jsp">신청 목록</a></button>
+  <input type="submit" class="btn btn-primary form-control" value = "작성"><a href="myprojects_owner.jsp">내가 작성한 게시글 목록</a>
+  <input type="submit" class="btn btn-primary form-control" value = "신청"><a href="myprojects_joined.jsp">신청 목록</a>
 
 </div>
 
