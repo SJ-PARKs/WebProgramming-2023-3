@@ -11,11 +11,21 @@ function moveToProjectPage(message, url){
 	  location.href = url;
 }
 </script> -->
+<script>
+        // JavaScript function to show an alert
+        function showLoginAlert() {
+            alert("로그인이 필요합니다.");
+            // Redirect to the login page if needed
+            // location.href = 'login.jsp';
+        }
+    </script>
 </head>
 <body>
 	<%
 	request.setCharacterEncoding("utf-8"); // 한글 처리
 
+	Integer isAdminAttribute = (Integer) session.getAttribute("isadmin");
+	int isadmin = (isAdminAttribute != null) ? isAdminAttribute : -1;
 	String outline, teamMate, level, startDate, endDate, projectName;
 	int ref = 0, cnt = 0;
 	Connection conn = null;
@@ -26,6 +36,12 @@ function moveToProjectPage(message, url){
 	String p_id = request.getParameter("projectName");
 	String a_id = (String) session.getAttribute("id");
 
+
+	if (session.getAttribute("id") == null) {
+		 out.println("<script>showLoginAlert();</script>");
+		 response.sendRedirect("detailPage.jsp");
+	}
+	else{
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC";
@@ -125,6 +141,7 @@ function moveToProjectPage(message, url){
 	}
 
 	response.sendRedirect("detailPage.jsp");
+	}
 	%>
 
 

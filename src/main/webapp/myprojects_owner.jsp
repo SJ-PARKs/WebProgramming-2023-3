@@ -55,14 +55,15 @@
     rs = pstmt1.executeQuery();
 
     //저장된 튜플 탐색
-    while(rs.next()){
-      project = rs.getString("project_id");
-%>
-    <dl class="row">
-      <dt class="col-sm-3">project:</dt>
-      <dd class="col-sm-9"><%= project %></dd>
-    </dl>
 
+
+while(rs.next()) {
+    project = rs.getString("project_id");
+%>
+    <div style="border: 1px solid #ccc; padding: 5px; margin-bottom: 5px;">
+        <h5>Project:</h5>
+        <p><%= project %></p>
+    </div>
 <%
     }
 

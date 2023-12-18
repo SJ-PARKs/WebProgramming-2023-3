@@ -49,6 +49,27 @@ request.setCharacterEncoding("utf-8");
   }
 
 </style>
+<script>
+        // JavaScript function to show an alert
+        function showLoginAlert() {
+            alert("로그인이 필요합니다.");
+            // Redirect to the login page if needed
+            // location.href = 'login.jsp';
+        }
+    </script>
+
+<%
+   request.setCharacterEncoding("utf-8"); // 한글 처리
+
+   Integer isAdminAttribute = (Integer) session.getAttribute("isadmin");
+   int isadmin = (isAdminAttribute != null) ? isAdminAttribute : -1;
+
+
+   if (session.getAttribute("id") == null) {
+       out.println("<script>showLoginAlert();</script>");
+       response.sendRedirect("detailPage.jsp");
+   }
+%>
 
 <script type="text/javascript">
 	function addProject() {
@@ -60,6 +81,16 @@ request.setCharacterEncoding("utf-8");
 			document.addForm.reset();
 		}
 	}
+	function deleteProject() {
+
+		if (confirm("프로젝트를 삭제하겠습니까?")) {
+			document.deleteForm.submit();
+		} else {
+
+			document.deleteForm.reset();
+		}
+	}
+	
 </script>
 
 </head>
@@ -139,9 +170,11 @@ request.setCharacterEncoding("utf-8");
 		<form name="addForm" 
 					action="./addProject.jsp?projectName=<%=projectName%>"
 					method="post">
-					<a href="#" class="btn btn-info" onclick="addProject()"> 가입
-						&raquo;</a> <a href="detailPage.jsp" class="btn btn-secondary">
-						목록 &raquo;</a>
+					<a href="#" class="btn btn-info" onclick="addProject()">가입 &raquo;</a>
+					<a href="modifyPage.jsp?ref=<%=ref%>" class="btn btn-warning" >수정 &raquo;</a>
+					<a href="deleteAction.jsp?ref=<%=ref%>" class="btn btn-danger">삭제 &raquo;</a>	
+					<a href="detailPage.jsp" class="btn btn-secondary">목록 &raquo;</a>
+
 		</form>
 		
 	</div>
