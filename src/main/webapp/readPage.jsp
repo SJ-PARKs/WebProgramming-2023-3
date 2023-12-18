@@ -17,19 +17,6 @@ request.setCharacterEncoding("utf-8");
 	justify-content: center;
 	margin: auto;
 }
-/* table {
-	border: 1px solid;
-	text-align: center;
-	justify-content: center;
-	margin: auto;
-	box-shadow: 1px 1px 1px;
-}
-
-tr, td {
-	box-shadow: 1px 1px 1px;
-	border: 1px solid;
-	padding: 10px;
-} */
 
   .container {
     display: flex;
@@ -165,5 +152,6 @@ tr, td {
 	stmt.close();
 	conn.close();
 	%>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

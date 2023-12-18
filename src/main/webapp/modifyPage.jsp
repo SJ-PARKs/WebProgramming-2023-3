@@ -113,5 +113,6 @@ tr, td {
 	stmt.close();
 	conn.close();
 	%>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
